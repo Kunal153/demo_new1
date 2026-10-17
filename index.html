@@ -68,14 +68,12 @@
       </div>
     </div>
 
-    <!-- Dynamic loader script for GitHub Pages / static deployment -->
+    <!-- Dynamic loader script for GitHub Pages fallback only -->
     <script>
-      // If after 4 seconds the app hasn't mounted, display troubleshooting options
       setTimeout(function() {
-        if (!window.__ENGINOTES_LOADED__) {
+        if (!window.__ENGINOTES_LOADED__ && window.location.hostname.endsWith('github.io')) {
           var fb = document.getElementById('fallback-help');
           if (fb) fb.style.display = 'block';
-          // Try dynamically loading ./assets/index.js if on static server
           if (!document.querySelector('script[src*="assets/"]')) {
             var s = document.createElement('script');
             s.type = 'module';
@@ -88,7 +86,7 @@
             document.head.appendChild(c);
           }
         }
-      }, 3500);
+      }, 5000);
     </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -27,11 +27,13 @@ import { SectionType } from '../types';
 interface LoginPageProps {
   onNavigate: (section: SectionType) => void;
   initialMode?: 'signin' | 'signup' | 'forgot';
+  isFullWidth?: boolean;
 }
 
 export const LoginPage: React.FC<LoginPageProps> = ({
   onNavigate,
-  initialMode = 'signin'
+  initialMode = 'signin',
+  isFullWidth = false,
 }) => {
   const {
     user,

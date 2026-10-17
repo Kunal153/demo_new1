@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "tsx server.ts",
     "start": "tsx server.ts",
-    "build": "vite build && rm -rf docs && cp -r dist docs && rm -rf assets && cp -r dist/assets .",
+    "build": "vite build",
+    "build:gh": "vite build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "preview": "vite preview",

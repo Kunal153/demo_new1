@@ -5,12 +5,13 @@ import { SectionType } from '../types';
 interface FooterProps {
   onNavigate: (section: SectionType) => void;
   onSelectSubject: (subject: string) => void;
+  isFullWidth?: boolean;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+export const Footer: React.FC<FooterProps> = ({ onNavigate, isFullWidth = false }) => {
   return (
     <footer className="bg-slate-950 border-t border-slate-900 text-slate-500 text-xs py-8 mt-auto">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className={`${isFullWidth ? 'max-w-7xl' : 'max-w-5xl'} mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4`}>
         <div className="flex items-center gap-2 text-slate-300">
           <div className="w-7 h-7 rounded-lg bg-sky-500/20 border border-sky-500/30 flex items-center justify-center text-sky-400">
             <GraduationCap className="w-4 h-4" />
